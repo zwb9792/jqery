@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				width: 170px;
+				/*height: 100px;*/
+				overflow: hidden;
+				border: 1px solid #000;
+			}
+			li{
+				list-style: none;
+				
+			}
+			li:hover{
+				background-color: #ccc;
+			}
+			input{
+				
+				margin: 0 auto;
+			}
+			a{
+				text-decoration: none;
+				color: #000;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="" id="txt" value="" />
+		<input type="button" name="" id="btn" value="百度一下" />
+		<ul id="list">
+		</ul>
+		
+		<script type="text/javascript">
+			function fn(a){
+				console.log(a);
+				var ul = document.getElementById('list');
+				var aa = document.getElementById('aa');
+				var arr = a.s;
+				ul.innerHTML = '';
+				for(var i=0;i<arr.length;i++){
+					ul.innerHTML += '<li><a href="https://www.baidu.com/s?ie=utf-8&f=3&rsv_bp=1&rsv_idx=1&tn=62095104_oem_dg&wd='+arr[i]+'">'+arr[i]+'</a></li>';
+				}
+				aa.remove();
+			}
+			var txt = document.getElementById('txt');
+			var btn = document.getElementById('btn');
+			btn.onclick = function(){
+				var oS = document.createElement('script');
+				oS.id = 'aa';
+				oS.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+txt.value+'&cb=fn';
+				document.body.appendChild(oS);
+			}
+			//https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=h&
+			
+		</script>
+	</body>
+</html>
